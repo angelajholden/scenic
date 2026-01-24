@@ -11,3 +11,5 @@
 - test og tags on facebook debugger
 - seo page descrptions
 - parallax
+- fade in on page load
+- planning the css font sizes and spacing
