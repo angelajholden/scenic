@@ -13,3 +13,4 @@
 - parallax
 - fade in on page load
 - planning the css font sizes and spacing
+- bento grid
