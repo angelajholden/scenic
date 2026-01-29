@@ -22,10 +22,10 @@
 	<script defer src="../script.js"></script>
 </head>
 
-<body class="animate__animated animate__fadeIn">
+<body class="">
 	<header class="header">
 		<div class="wrap">
-			<h1 class="primary_logo"><a href="./">Scenic</a></h1>
+			<div class="primary_logo"><a href="./">Scenic</a></div>
 			<button class="open_button menu_button" aria-label="Open Menu" aria-expanded="false" aria-controls="mainNav">
 				<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352"/></svg>
 			</button>
@@ -43,55 +43,40 @@
 		</div>
 	</header>
 	<main class="main">
-		<section class="section hero">
+		<div class="section inner_hero">
 			<figure class="figure">
 				<img src="../images/scenic-hero.jpg" alt="Blue sky with a big tree in the foreground.">
 			</figure>
-			<div class="hero_content animate__animated animate__bounce">
-				<h2 class="secondary_heading">Scenic</h2>
-				<div class="phonic">sce•nic</div>
-				<p>providing or relating to views of impressive or beautiful natural scenery</p>
+		</div>
+		<section class="section contact">
+			<div class="wrap">
+				<h1 class="primary_heading">Contact</h1>
+				<form class="form" action="#" method="POST">
+					<div class="two_inputs">
+						<label for="name" class="sr-only">Name</label>
+						<input id="name" type="text" placeholder="Name" required autocomplete="name">
+						<label for="email" class="sr-only">Email</label>
+						<input id="email" type="email" placeholder="Name" required autocomplete="email">
+					</div>
+					<label for="message" class="sr-only">Message</label>
+					<textarea name="message" id="message" placeholder="Message" rows="8"></textarea>
+					<button type="submit">Submit</button>
+				</form>
 			</div>
 		</section>
-		<div class="section grid">
-			<div class="wrap">
-				<article class="article">
-					<figure class="figure">
-						<img src="../images/scenic-hero.jpg" alt="placeholder text">
-					</figure>
-					<h3 class="tertiary_heading">Lorem, ipsum dolor.</h3>
-				</article>
-				<article class="article">
-					<figure class="figure">
-						<img src="../images/scenic-hero.jpg" alt="placeholder text">
-					</figure>
-					<h3 class="tertiary_heading">Lorem, ipsum dolor.</h3>
-				</article>
-				<article class="article">
-					<figure class="figure">
-						<img src="../images/scenic-hero.jpg" alt="placeholder text">
-					</figure>
-					<h3 class="tertiary_heading">Lorem, ipsum dolor.</h3>
-				</article>
-				<article class="article">
-					<figure class="figure">
-						<img src="../images/scenic-hero.jpg" alt="placeholder text">
-					</figure>
-					<h3 class="tertiary_heading">Lorem, ipsum dolor.</h3>
-				</article>
-				<article class="article">
-					<figure class="figure">
-						<img src="../images/scenic-hero.jpg" alt="placeholder text">
-					</figure>
-					<h3 class="tertiary_heading">Lorem, ipsum dolor.</h3>
-				</article>
-				<article class="article">
-					<figure class="figure">
-						<img src="../images/scenic-hero.jpg" alt="placeholder text">
-					</figure>
-					<h3 class="tertiary_heading">Lorem, ipsum dolor.</h3>
-				</article>
-			</div>
+		<div class="asides">
+			<aside class="aside">
+				<h2 class="secondary_heading">Aside One</h2>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis magnam deserunt nesciunt asperiores dignissimos quisquam nulla? Obcaecati tempore voluptates illo harum est perferendis esse? Ad voluptate temporibus iure laboriosam repellat.</p>
+			</aside>
+			<aside class="aside">
+				<h2 class="secondary_heading">Aside Two</h2>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis magnam deserunt nesciunt asperiores dignissimos quisquam nulla? Obcaecati tempore voluptates illo harum est perferendis esse? Ad voluptate temporibus iure laboriosam repellat.</p>
+			</aside>
+			<aside class="aside">
+				<h2 class="secondary_heading">Aside Three</h2>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis magnam deserunt nesciunt asperiores dignissimos quisquam nulla? Obcaecati tempore voluptates illo harum est perferendis esse? Ad voluptate temporibus iure laboriosam repellat.</p>
+			</aside>
 		</div>
 	</main>
 	<footer class="footer">

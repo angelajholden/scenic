@@ -15,6 +15,7 @@
 	--green: #6a7765;
 	--lt-gray: #f2f2f2;
 	--med-gray: #eaeaea;
+	--dk-gray: #667;
 	--black: #222;
 	--white: #fff;
 }
@@ -94,6 +95,23 @@ h3 {
 
 p {
 	font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.primary_heading {
+	display: inline-block;
+	margin-left: 50%;
+	margin-bottom: 3rem;
+	padding: 1rem 4rem;
+	transform: translateX(-50%);
+	font-size: clamp(2rem, 6vw, 5rem);
+	font-weight: 300;
+	color: var(--dk-gray);
+	border-bottom: 1px solid var(--dk-gray);
+}
+
+.main {
+	position: relative;
+	z-index: 0;
 }
 
 .section {
@@ -310,6 +328,27 @@ p {
 	font-weight: 300;
 }
 
+/* Inner Page Hero */
+.inner_hero {
+	position: absolute;
+	inset: 0;
+	padding: 0;
+	width: 100%;
+	height: 66vh;
+	z-index: -1;
+}
+
+.inner_hero .figure {
+	width: 100%;
+	height: 100%;
+}
+
+.inner_hero img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
 /* Grid */
 .grid .wrap {
 	display: grid;
@@ -358,6 +397,7 @@ p {
 }
 
 /* Forms */
+textarea,
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -371,14 +411,29 @@ button[type="submit"] {
 	font-weight: 300;
 	line-height: normal;
 	color: var(--white);
-	transition: background-color 300ms ease-in-out;
+	transition:
+		background-color 300ms ease-in-out,
+		color 300ms ease-in-out;
+}
+
+button[type="submit"] {
+	min-width: 220px;
+	max-width: 100%;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	border: 2px solid var(--dk-blue);
+	background-color: var(--dk-blue);
 }
 
 button[type="submit"]:focus,
 button[type="submit"]:hover,
 button[type="submit"]:active {
-	background-color: var(--dk-blue);
-	color: var(--white);
+	background-color: transparent;
+	color: var(--dk-blue);
+}
+
+textarea {
+	width: 100%;
 }
 
 @media (max-width: 1024px) {
@@ -393,6 +448,35 @@ button[type="submit"]:active {
 		max-width: 100%;
 		margin: 0 0 0.5rem;
 	}
+}
+
+/* Contact */
+.contact {
+	padding: 8rem 1rem;
+	background-color: rgba(255, 255, 255, 10%);
+	backdrop-filter: blur(3px);
+}
+
+.contact .wrap {
+	padding: 3rem;
+	background-color: rgba(255, 255, 255, 75%);
+	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 10%);
+}
+
+.contact .form {
+	max-width: 50rem;
+	margin: 0 auto;
+}
+
+.two_inputs {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2rem;
+	margin: 0 0 2rem;
+}
+
+.contact textarea {
+	margin: 0 0 2rem;
 }
 
 /* Subscribe */
