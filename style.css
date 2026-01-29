@@ -197,6 +197,7 @@ p {
 	text-decoration-color: transparent;
 }
 
+.navigation a.active,
 .navigation a:focus,
 .navigation a:hover,
 .navigation a:active {
