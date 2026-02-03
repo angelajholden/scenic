@@ -99,14 +99,19 @@ p {
 }
 
 .primary_heading {
-	display: inline-block;
-	margin-left: 50%;
-	margin-bottom: 3rem;
-	padding: 1rem 4rem;
-	transform: translateX(-50%);
-	font-size: clamp(2rem, 6vw, 5rem);
+	font-size: clamp(2rem, 5vw, 4rem);
 	font-weight: 300;
+	text-align: center;
 	color: var(--dk-gray);
+	margin: 0;
+}
+
+.primary_heading::after {
+	content: "";
+	display: block;
+	width: 500px;
+	max-width: 100%;
+	margin: clamp(1rem, 3vw, 2rem) auto 1rem;
 	border-bottom: 1px solid var(--dk-gray);
 }
 
@@ -134,16 +139,6 @@ p {
 	width: 1px;
 }
 
-@media (max-width: 600px) {
-	.primary_heading {
-		display: block;
-		margin: 0 0 1rem;
-		padding: 0 0 1rem;
-		transform: none;
-		text-align: center;
-	}
-}
-
 /* Header */
 .header {
 	padding: 1rem;
@@ -168,8 +163,9 @@ p {
 }
 
 .primary_logo a {
-	font-size: 2rem;
-	font-weight: 600;
+	font-size: clamp(2rem, 4vw, 3rem);
+	font-weight: 300;
+	line-height: 1;
 	color: var(--dk-blue);
 	text-decoration-color: transparent;
 }
@@ -478,6 +474,7 @@ textarea {
 	button[type="submit"] {
 		display: block;
 		width: 100%;
+		min-width: auto;
 		margin: 0;
 		transform: none;
 	}
@@ -503,7 +500,7 @@ textarea {
 /* Contact */
 .page .form {
 	max-width: 50rem;
-	margin: 0 auto;
+	margin: clamp(1rem, 3vw, 2rem) auto 0;
 }
 
 .two_inputs {

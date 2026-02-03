@@ -2,6 +2,14 @@ const body = document.querySelector("body");
 const buttons = document.querySelectorAll(".menu_button");
 const open = document.querySelector(".open_button");
 
+function copyright() {
+	const date = document.getElementById("date");
+	const year = new Date().getFullYear();
+	if (date) {
+		date.textContent = year;
+	}
+}
+
 function menuToggle() {
 	if (open) {
 		buttons.forEach((button) => {
@@ -54,6 +62,7 @@ function form() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+	copyright();
 	menuToggle();
 	escapeToggle();
 	form();
