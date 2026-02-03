@@ -437,7 +437,7 @@ button[type="submit"] {
 	font-size: 1.5rem;
 	font-weight: 300;
 	line-height: normal;
-	color: var(--white);
+	color: var(--black);
 	transition:
 		background-color 300ms ease-in-out,
 		color 300ms ease-in-out;
@@ -450,6 +450,7 @@ button[type="submit"] {
 	transform: translateX(-50%);
 	border: 2px solid var(--dk-blue);
 	background-color: var(--dk-blue);
+	color: var(--white);
 }
 
 button[type="submit"]:focus,
@@ -587,6 +588,7 @@ textarea {
 
 .subscribe input[type="text"],
 .subscribe input[type="email"] {
+	color: var(--white);
 	border-color: var(--white);
 	background-color: transparent;
 }
