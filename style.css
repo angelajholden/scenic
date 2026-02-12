@@ -94,7 +94,7 @@ a:active {
 h1,
 h2,
 h3 {
-	line-height: 1.25;
+	line-height: 1.5;
 	margin: 0 0 1rem;
 }
 
@@ -120,8 +120,12 @@ p {
 }
 
 .main {
-	position: relative;
-	z-index: 0;
+	/* position: relative;
+	z-index: 0; */
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto; /* Allows scrolling within the 3D space */
+	perspective: 2px; /* Sets the 3D perspective */
 }
 
 .section {
@@ -145,6 +149,12 @@ p {
 
 .center {
 	text-align: center;
+}
+
+@media (max-width: 1024px) {
+	.section {
+		padding: 1rem;
+	}
 }
 
 /* Header */
@@ -397,7 +407,8 @@ p {
 	gap: 2rem;
 }
 
-.article {
+.article_link {
+	display: block;
 	border-radius: 10px;
 	border: 1px solid var(--med-gray);
 	overflow: hidden;
@@ -408,6 +419,7 @@ p {
 	width: 100%;
 	height: auto;
 	aspect-ratio: 16 / 9;
+	overflow: hidden;
 }
 
 .article img {
@@ -416,11 +428,22 @@ p {
 	object-fit: cover;
 }
 
+.article_link img {
+	transform: scale(1);
+	transition: transform 300ms ease-in-out;
+}
+
+.article_link:focus img,
+.article_link:hover img,
+.article_link:active img {
+	transform: scale(1.1);
+}
+
 .article .tertiary_heading {
 	margin: 0;
-	padding: 2rem 1rem;
+	padding: 1rem 1rem 1.5rem;
 	text-align: center;
-	font-size: clamp(1rem, 3vw, 2rem);
+	font-size: clamp(1.1rem, 2vw, 1.5rem);
 	font-weight: 300;
 }
 
@@ -435,6 +458,35 @@ p {
 	.grid .wrap {
 		grid-template-columns: 1fr;
 	}
+}
+
+/* Parallax */
+.section.parallax,
+.section.parallax_content {
+	position: relative;
+	height: 100vh;
+	transform-style: inherit;
+}
+
+.parallax::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1; /* Pushes background behind content */
+	/* Moves the element back and scales it up to appear at original size */
+	transform: translateZ(-1px) scale(1.5);
+	/* Add background-image, etc. here */
+	background-image: url("images/scenic-hero.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.parallax_content {
+	color: var(--white);
+	background-color: var(--dk-blue);
 }
 
 /* Forms */
@@ -583,8 +635,6 @@ textarea {
 .blog .figure {
 	width: 100%;
 	height: auto;
-	border-radius: 10px;
-	overflow: hidden;
 	aspect-ratio: 16 / 9;
 }
 
@@ -592,6 +642,7 @@ textarea {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	border-radius: 10px;
 }
 
 .blog .primary_heading {
