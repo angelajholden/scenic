@@ -120,12 +120,8 @@ p {
 }
 
 .main {
-	/* position: relative;
-	z-index: 0; */
-	height: 100vh;
-	overflow-x: hidden;
-	overflow-y: auto; /* Allows scrolling within the 3D space */
-	perspective: 2px; /* Sets the 3D perspective */
+	position: relative;
+	z-index: 0;
 }
 
 .section {
@@ -461,32 +457,14 @@ p {
 }
 
 /* Parallax */
-.section.parallax,
-.section.parallax_content {
-	position: relative;
-	height: 100vh;
-	transform-style: inherit;
-}
-
-.parallax::after {
-	content: "";
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: -1; /* Pushes background behind content */
-	/* Moves the element back and scales it up to appear at original size */
-	transform: translateZ(-1px) scale(1.5);
-	/* Add background-image, etc. here */
-	background-image: url("images/scenic-hero.jpg");
+.parallax {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 4 / 1;
+	background: url("images/scenic-hero.jpg") no-repeat;
 	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-.parallax_content {
+	background-attachment: fixed;
 	color: var(--white);
-	background-color: var(--dk-blue);
 }
 
 /* Forms */
