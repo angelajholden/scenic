@@ -10,7 +10,7 @@
 */
 :root {
 	--blue: #367db5;
-	--dk-blue: #23669b;
+	--dk-blue: rgb(35, 102, 155);
 	--yellow: #f2c744;
 	--green: #6a7765;
 	--lt-gray: #f8f8f8;
@@ -65,6 +65,29 @@ button {
 	background-color: transparent;
 	cursor: pointer;
 	border-radius: 10px;
+}
+
+.button {
+	display: inline-block;
+	padding: 1rem;
+	border: 2px solid var(--white);
+	border-radius: 10px;
+	background-color: transparent;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	line-height: normal;
+	color: var(--white);
+	transition:
+		background-color 300ms ease-in-out,
+		color 300ms ease-in-out;
+}
+
+.button:focus,
+.button:hover,
+.button:active {
+	background-color: var(--white);
+	color: var(--dk-blue);
 }
 
 svg {
@@ -464,7 +487,47 @@ p {
 	background: url("images/scenic-hero.jpg") no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+}
+
+.parallax_content {
+	position: relative;
+	padding: 5rem;
+	border-radius: 10px;
 	color: var(--white);
+	background-color: rgba(35, 102, 155, 90%);
+	backdrop-filter: blur(5px);
+}
+
+.parallax_content::before {
+	content: "";
+	position: absolute;
+	top: 1.5rem;
+	left: 1.5rem;
+	width: calc(100% - 3rem);
+	height: calc(100% - 3rem);
+	border: 2px dotted var(--med-gray);
+	border-radius: 10px;
+}
+
+.parallax_content .secondary_heading {
+	font-size: clamp(1.5rem, 3vw, 2.5rem);
+	font-weight: 300;
+}
+
+@media (max-width: 960px) {
+	.parallax_content {
+		padding: 2rem;
+	}
+
+	.parallax_content::before {
+		top: 1rem;
+		left: 1rem;
+		width: calc(100% - 2rem);
+		height: calc(100% - 2rem);
+	}
 }
 
 /* Forms */
