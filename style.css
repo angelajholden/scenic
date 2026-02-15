@@ -510,6 +510,7 @@ p {
 	height: calc(100% - 3rem);
 	border: 2px dotted var(--med-gray);
 	border-radius: 10px;
+	pointer-events: none;
 }
 
 .parallax_content .secondary_heading {
@@ -710,6 +711,28 @@ textarea {
 @media (max-width: 960px) {
 	.section.blog {
 		padding: 1rem;
+	}
+}
+
+@media print {
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+		color: black;
+		background-color: white;
+	}
+
+	.header,
+	.social_sharing,
+	.footer {
+		display: none;
+	}
+
+	p {
+		font-size: 1rem;
+	}
+
+	a {
+		color: black;
 	}
 }
 
