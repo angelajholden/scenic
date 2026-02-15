@@ -74,10 +74,19 @@ function printButton() {
 function sharingIcons() {
 	// get the url
 	const URL = window.location.href;
-	// get the featured img
-	const image = document.querySelector("img");
+
 	// get the title
-	const title = document.querySelector(".primary_heading");
+	let title = document.querySelector(".primary_heading");
+	if (title) {
+		title = title.textContent;
+	}
+
+	// get the featured img
+	let image = document.querySelector("img");
+	if (image) {
+		image = image.src;
+	}
+
 	// get the a element
 	const facebook = document.querySelector(".facebook");
 	const x = document.querySelector(".x");
@@ -86,10 +95,10 @@ function sharingIcons() {
 	const email = document.querySelector(".email");
 
 	facebook.href = encodeURI(`https://www.facebook.com/sharer/sharer.php?u=${URL}`);
-	x.href = encodeURI(`https://twitter.com/intent/tweet?text=${title.textContent} ${URL}`);
-	pinterest.href = encodeURI(`https://www.pinterest.com/pin/create/button/?url=${URL}&media=${image.src}&description=${title.textContent}`);
+	x.href = encodeURI(`https://twitter.com/intent/tweet?text=${title} ${URL}`);
+	pinterest.href = encodeURI(`https://www.pinterest.com/pin/create/button/?url=${URL}&media=${image}&description=${title}`);
 	linkedin.href = encodeURI(`https://www.linkedin.com/shareArticle?mini=true&url=${URL}`);
-	email.href = encodeURI(`mailto:?subject=${title.textContent}&body=${title.textContent} ${URL}`);
+	email.href = encodeURI(`mailto:?subject=${title}&body=${title} ${URL}`);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
