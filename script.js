@@ -5,70 +5,62 @@ const open = document.querySelector(".open_button");
 function copyright() {
 	const date = document.getElementById("date");
 	const year = new Date().getFullYear();
-	if (date) {
-		date.textContent = year;
-	}
+	if (!date) return;
+	date.textContent = year;
 }
 
 function menuToggle() {
-	if (open) {
-		buttons.forEach((button) => {
-			button.addEventListener("click", () => {
-				const isActive = body.classList.toggle("menu_active");
-				if (isActive) {
-					open.setAttribute("aria-expanded", "true");
-				} else {
-					open.setAttribute("aria-expanded", "false");
-				}
-			});
-		});
-	}
-}
-
-function escapeToggle() {
-	if (open) {
-		document.addEventListener("keydown", (e) => {
-			if (e.key === "Escape" && body.classList.contains("menu_active")) {
-				body.classList.remove("menu_active");
+	if (!open) return;
+	buttons.forEach((button) => {
+		button.addEventListener("click", () => {
+			const isActive = body.classList.toggle("menu_active");
+			if (isActive) {
+				open.setAttribute("aria-expanded", "true");
+			} else {
 				open.setAttribute("aria-expanded", "false");
 			}
 		});
-	}
+	});
+}
+
+function escapeToggle() {
+	if (!open) return;
+	document.addEventListener("keydown", (e) => {
+		if (e.key === "Escape" && body.classList.contains("menu_active")) {
+			body.classList.remove("menu_active");
+			open.setAttribute("aria-expanded", "false");
+		}
+	});
 }
 
 function form() {
 	const form = document.querySelector("form");
-	if (form) {
-		const url = form.querySelector('input[name="page_url"]');
-		if (url) url.value = window.location.href;
+	if (!form) return;
 
-		const path = form.querySelector('input[name="page_path"]');
-		if (path) path.value = window.location.pathname;
+	const url = form.querySelector('input[name="page_url"]');
+	if (url) url.value = window.location.href;
 
-		form.addEventListener("submit", (e) => {
-			if (!form.checkValidity()) {
-				e.preventDefault();
-				form.reportValidity();
-				return;
-			}
+	const path = form.querySelector('input[name="page_path"]');
+	if (path) path.value = window.location.pathname;
 
-			const btn = form.querySelector('button[type="submit"]');
-			if (btn) {
-				btn.disabled = true;
-				btn.textContent = "Sending...";
-			}
-		});
-	}
+	form.addEventListener("submit", (e) => {
+		if (!form.checkValidity()) {
+			e.preventDefault();
+			form.reportValidity();
+			return;
+		}
+
+		const btn = form.querySelector('button[type="submit"]');
+		if (!btn) return;
+		btn.disabled = true;
+		btn.textContent = "Sending...";
+	});
 }
 
 function printButton() {
 	const print = document.querySelector(".print_icon");
-	if (print) {
-		print.addEventListener("click", () => {
-			console.log("clicked");
-			window.print();
-		});
-	}
+	if (!print) return;
+	print.addEventListener("click", () => window.print());
 }
 
 function sharingIcons() {
