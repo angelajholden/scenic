@@ -1,6 +1,6 @@
 const body = document.querySelector("body");
-const buttons = document.querySelectorAll(".menu_button");
 const open = document.querySelector(".open_button");
+const close = document.querySelector(".close_button");
 
 function copyright() {
 	const date = document.getElementById("date");
@@ -10,25 +10,31 @@ function copyright() {
 }
 
 function menuToggle() {
-	if (!open) return;
-	buttons.forEach((button) => {
-		button.addEventListener("click", () => {
-			const isActive = body.classList.toggle("menu_active");
-			if (isActive) {
-				open.setAttribute("aria-expanded", "true");
-			} else {
-				open.setAttribute("aria-expanded", "false");
-			}
-		});
+	if (!open || !close) return;
+
+	open.addEventListener("click", () => {
+		body.classList.add("menu_active");
+		open.setAttribute("aria-expanded", "true");
+		close.focus();
 	});
+
+	close.addEventListener("click", () => {
+		closeMenu();
+	});
+}
+
+function closeMenu() {
+	if (!open) return;
+	body.classList.remove("menu_active");
+	open.setAttribute("aria-expanded", "false");
+	open.focus();
 }
 
 function escapeToggle() {
 	if (!open) return;
 	document.addEventListener("keydown", (e) => {
 		if (e.key === "Escape" && body.classList.contains("menu_active")) {
-			body.classList.remove("menu_active");
-			open.setAttribute("aria-expanded", "false");
+			closeMenu();
 		}
 	});
 }
@@ -64,6 +70,9 @@ function printButton() {
 }
 
 function sharingIcons() {
+	const sharing = document.querySelector(".social_sharing");
+	if (!sharing) return;
+
 	// get the url
 	const URL = window.location.href;
 
@@ -80,15 +89,18 @@ function sharingIcons() {
 	}
 
 	// get the a element
-	const facebook = document.querySelector(".facebook");
-	const x = document.querySelector(".x");
-	const pinterest = document.querySelector(".pinterest");
-	const linkedin = document.querySelector(".linkedin");
-	const email = document.querySelector(".email");
+	const facebook = sharing.querySelector(".facebook");
+	const x = sharing.querySelector(".x");
+	const pinterest = sharing.querySelector(".pinterest");
+	const linkedin = sharing.querySelector(".linkedin");
+	const email = sharing.querySelector(".email");
+	if (!facebook || !x || !pinterest || !linkedin || !email) return;
 
 	facebook.href = encodeURI(`https://www.facebook.com/sharer/sharer.php?u=${URL}`);
 	x.href = encodeURI(`https://twitter.com/intent/tweet?text=${title} ${URL}`);
-	pinterest.href = encodeURI(`https://www.pinterest.com/pin/create/button/?url=${URL}&media=${image}&description=${title}`);
+	pinterest.href = encodeURI(
+		`https://www.pinterest.com/pin/create/button/?url=${URL}&media=${image}&description=${title}`,
+	);
 	linkedin.href = encodeURI(`https://www.linkedin.com/shareArticle?mini=true&url=${URL}`);
 	email.href = encodeURI(`mailto:?subject=${title}&body=${title} ${URL}`);
 }
